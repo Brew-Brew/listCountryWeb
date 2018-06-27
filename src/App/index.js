@@ -12,8 +12,8 @@ class App extends Component {
     return (
       <div className={cx(`${moduleName}`)}>
         ListCountries Web app
-        <ListCountries />
         <SearchBar />
+        <ListCountries />
       </div>
     );
   }

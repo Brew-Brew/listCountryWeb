@@ -5,14 +5,21 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: "body"
 });
 module.exports = {
-  entry: "./src/index.js",
+  entry: ["babel-polyfill", "./src/index.js"],
   output: {
     path: path.resolve("dist"),
     filename: "[name].[hash].js"
   },
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, loader: "babel-loader", exclude: /node_modules/ },
+      {
+        test: /\.(js|jsx)$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
+        query: {
+          plugins: ["transform-object-rest-spread"]
+        }
+      },
 
       {
         test: /\.css$/,
