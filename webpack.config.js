@@ -15,6 +15,11 @@ module.exports = {
       { test: /\.(js|jsx)$/, loader: "babel-loader", exclude: /node_modules/ }
     ]
   },
+  resolve: {
+    alias: {
+      src: path.resolve(__dirname, "./src")
+    }
+  },
   devServer: {
     contentBase: path.resolve("public")
   },
