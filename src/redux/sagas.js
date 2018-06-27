@@ -1,7 +1,7 @@
 import { all, fork } from "redux-saga/effects";
 import metaRoot from "./meta/sagas";
-import countryRoot from "./country/sagas";
+import watchLoadCountries from "./country/sagas";
 
 export default function* root() {
-  yield all([fork(metaRoot()), fork(countryRoot())]);
+  yield all([metaRoot(), fork(watchLoadCountries())]);
 }
