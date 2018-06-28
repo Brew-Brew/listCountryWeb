@@ -16,7 +16,6 @@ class SearchBar extends Component {
     this.sortCountries = this.sortCountries.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-  componentDidMount() {}
   sortCountries(sortInfo) {
     this.props.sortCountries(sortInfo);
   }

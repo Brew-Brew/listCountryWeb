@@ -4,7 +4,8 @@ import qs from "qs";
 export function getCountries() {
   return axios
     .create({
-      baseURL: "http://country.io",
+      //cors관련 이슈가 있어 아래 url로 바꿔주었습니다.
+      baseURL: "https://cors-anywhere.herokuapp.com/country.io",
       paramsSerializer(params) {
         return qs.stringify(params, { arrayFormat: "repeat" });
       }
