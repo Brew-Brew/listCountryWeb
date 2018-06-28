@@ -15,6 +15,7 @@ class SearchBar extends Component {
     this.state = { keyword: "" };
     this.sortCountries = this.sortCountries.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
   sortCountries(sortInfo) {
     this.props.sortCountries(sortInfo);
@@ -23,6 +24,15 @@ class SearchBar extends Component {
     this.setState({
       keyword: e.target.value
     });
+  }
+  handleKeyPress(e) {
+    const { keyword } = this.state;
+    // 눌려진 키가 Enter 면 검색
+    if (e.key === "Enter") {
+      event.preventDefault();
+      event.stopPropagation();
+      this.props.searchData(keyword);
+    }
   }
   render() {
     const { keyword } = this.state;
@@ -34,8 +44,10 @@ class SearchBar extends Component {
             <input
               placeholder="Search code or country name"
               onChange={this.handleChange}
+              onKeyPress={this.handleKeyPress}
               value={keyword}
             />
+
             <div
               className={cx(`${moduleName}-searchWrapper-icon`)}
               onClick={() => this.props.searchData(keyword)}
@@ -72,7 +84,7 @@ class SearchBar extends Component {
             이름별 내림차순
           </button>
           <button onClick={() => this.props.clearSearch()}>
-            초기 데이터 다시 받아오기
+            초기 데이터 받기
           </button>
         </div>
       </div>

@@ -9,8 +9,8 @@ const ListCountries = ({ countries }) => {
   return (
     <div classnames={cx(`${moduleName}`)}>
       <div className={cx(`${moduleName}-header`)}>
-        <h4>code</h4>
-        <h4>country</h4>
+        <h4>Code</h4>
+        <h4>Country</h4>
       </div>
       {countries.length > 0 &&
         countries.map(country => (

@@ -4,6 +4,8 @@
 
 ```
 yarn start
+
+url: https://zx6658.github.io/listCountryWeb/ 임시로 배포해놓았습니다 :)
 ```
 
 ### 간단한 리액트 페이지 개발
