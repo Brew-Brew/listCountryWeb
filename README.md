@@ -17,7 +17,7 @@ url: https://zx6658.github.io/listCountryWeb/ 임시로 배포해놓았습니다
 
 - 버튼을 누르면 코드별, 이름별 오름차순, 내림차순 정렬이 되어야 함.
 
-- 검색 창이 있어 코드, 이름 통합 검색이 되어야 함.
+- 검색 창이 있어 코드, 이름 통합 검색이 되어야 함.(돋보기 아이콘을 누르거나, 엔터를 누르면 검색)
   - data.code.replace(/\s/gi, "").toLowerCase().indexOf(searchData.replace(/\s/gi, "").toLowerCase()) >= 0
     || data.country.replace(/\s/gi, "") .toLowerCase() .indexOf(searchData.trim().toLowerCase()) >= 0 );
     과 같이 해주어, 대소문자 구분없이, 공백도 상관없이 검색가능하게 해주었음 (ex)northkorea 라 검색해도 나옴
