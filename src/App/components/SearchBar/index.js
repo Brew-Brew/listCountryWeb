@@ -31,36 +31,51 @@ class SearchBar extends Component {
       <div className={cx(`${moduleName}`)}>
         List Countries
         <div className={cx(`${moduleName}-area`)}>
-          <input
-            placeholder="검색"
-            onChange={this.handleChange}
-            value={keyword}
-          />
-          <button onClick={() => this.props.searchData(keyword)}>검색</button>
+          <div className={cx(`${moduleName}-searchWrapper`)}>
+            <input
+              placeholder="Search code or country name"
+              onChange={this.handleChange}
+              value={keyword}
+            />
+            <div
+              className={cx(`${moduleName}-searchWrapper-icon`)}
+              onClick={() => this.props.searchData(keyword)}
+            >
+              <img
+                src={
+                  "https://www.iconsdb.com/icons/preview/white/search-3-xxl.png"
+                }
+              />
+            </div>
+          </div>
         </div>
-        <button
-          onClick={() => this.sortCountries({ type: "code", sort: "asc" })}
-        >
-          코드별 오름차순
-        </button>
-        <button
-          onClick={() => this.sortCountries({ type: "code", sort: "desc" })}
-        >
-          코드별 내림차순
-        </button>
-        <button
-          onClick={() => this.sortCountries({ type: "country", sort: "asc" })}
-        >
-          이름별 오름차순
-        </button>
-        <button
-          onClick={() => this.sortCountries({ type: "country", sort: "desc" })}
-        >
-          이름별 내림차순
-        </button>
-        <button onClick={() => this.props.clearSearch()}>
-          초기 데이터 다시 받아오기
-        </button>
+        <div>
+          <button
+            onClick={() => this.sortCountries({ type: "code", sort: "asc" })}
+          >
+            코드별 오름차순
+          </button>
+          <button
+            onClick={() => this.sortCountries({ type: "code", sort: "desc" })}
+          >
+            코드별 내림차순
+          </button>
+          <button
+            onClick={() => this.sortCountries({ type: "country", sort: "asc" })}
+          >
+            이름별 오름차순
+          </button>
+          <button
+            onClick={() =>
+              this.sortCountries({ type: "country", sort: "desc" })
+            }
+          >
+            이름별 내림차순
+          </button>
+          <button onClick={() => this.props.clearSearch()}>
+            초기 데이터 다시 받아오기
+          </button>
+        </div>
       </div>
     );
   }

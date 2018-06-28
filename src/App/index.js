@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { ThreeBounce } from "better-react-spinkit";
 
 import styles from "./index.scss";
 import classnames from "classnames/bind";
@@ -23,8 +24,8 @@ class App extends Component {
     return (
       <div className={cx(`${moduleName}`)}>
         <SearchBar />
-        {country.loading && !country.data ? (
-          <div>loading...</div>
+        {country.loading ? (
+          <ThreeBounce size={15} color="#2e2744" />
         ) : (
           <ListCountries
             countries={
