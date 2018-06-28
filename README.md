@@ -29,11 +29,9 @@ url: https://zx6658.github.io/listCountryWeb/ 임시로 배포해놓았습니다
 - 보일러 플레이트(create-react-app 등)를 사용하지 않아야 함.
 - react, redux, redux-saga 혹은 redux-observable, webpack 을 사용하여 개발
 - 모든 상태(나라 목록, 정렬 상태, 검색어 등)은 redux 에 저장되어야 함.
-- Network 통신은 redux-saga 혹은 redux-observable 을 통해 되어야 함.
+- Network 통신은 redux-saga 혹은 redux-observable 을 통해 되어야 함.(redux-saga 를 선택)
 
 ### 구현
-
-## 구현
 
 ```
 [SPA 프레임워크]
