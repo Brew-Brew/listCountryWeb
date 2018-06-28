@@ -20,10 +20,10 @@ export function* loadCountries(actions) {
 
   try {
     const countries = yield call(getCountries);
+    //{ , , } => [{}.{},{}]형태로 바꿔주기 위한것이다.
     const countryArr = Object.keys(countries)
       .map(key => [{ code: key, country: countries[key] }])
       .map(arr => arr[0]);
-    console.log(countries);
     yield put(loadCountriesSuccess(countryArr));
   } catch (error) {
     yield put(loadCountriesFailure(error));

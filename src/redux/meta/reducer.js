@@ -1,6 +1,6 @@
-import { SET_META, CLEAR_META } from "./actions";
+import { SET_META, CLEAR_META, CLEAR_SEARCH } from "./actions";
 
-const initState = { sort: "default" };
+const initState = { sort: "default", searchData: "" };
 
 const meta = (state = initState, action) => {
   switch (action.type) {
@@ -9,24 +9,12 @@ const meta = (state = initState, action) => {
         ...state,
         ...action.meta
       };
-    case CLEAR_META: {
-      const { keys } = action;
-      let nextState;
-      if (keys) {
-        // 해당 key 만 clear
-        nextState = { ...state };
-
-        keys.forEach(key => {
-          delete nextState[key];
-        });
-      } else {
-        // 모두 clear
-        nextState = initState;
-      }
-
-      return nextState;
+    case CLEAR_SEARCH: {
+      return {
+        ...state,
+        searchData: ""
+      };
     }
-
     default:
       return state;
   }

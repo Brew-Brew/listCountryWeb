@@ -6,8 +6,6 @@ const cx = classnames.bind(styles);
 const moduleName = "ListCountries";
 
 const ListCountries = ({ countries }) => {
-  //{ , , } => [{}.{},{}]형태로 바꿔주기 위한것이다.
-  console.log(countries);
   return (
     <div classnames={cx(`${moduleName}`)}>
       list countries

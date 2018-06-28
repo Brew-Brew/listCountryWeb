@@ -1,7 +1,8 @@
 export const NAME = "META";
 
-export const CLEAR_META = `${NAME}/CLEAR_META`;
+export const CLEAR_SEARCH = `${NAME}/CLEAR_SEARCH`;
 export const SET_META = `${NAME}/SET_META`;
+export const SEARCH_DATA = `${NAME}/SEARCH_DATA`;
 
 export function setMeta(meta) {
   return {
@@ -10,9 +11,15 @@ export function setMeta(meta) {
   };
 }
 
-export function clearMeta(keys) {
+export function clearSearch() {
   return {
-    type: CLEAR_META,
-    keys
+    type: CLEAR_SEARCH
+  };
+}
+
+export function searchData(data) {
+  return {
+    type: SEARCH_DATA,
+    data
   };
 }

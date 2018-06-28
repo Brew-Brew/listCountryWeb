@@ -27,7 +27,11 @@ class App extends Component {
         {country.loading && !country.data ? (
           <div>loading...</div>
         ) : (
-          <ListCountries countries={country.data} />
+          <ListCountries
+            countries={
+              country.filteredData ? country.filteredData : country.data
+            }
+          />
         )}
       </div>
     );

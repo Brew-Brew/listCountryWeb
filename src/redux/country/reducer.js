@@ -1,13 +1,16 @@
 import {
   LOAD_COUNTRIES_REQUEST,
   LOAD_COUNTRIES_SUCCESS,
-  LOAD_COUNTRIES_FAILURE
+  LOAD_COUNTRIES_FAILURE,
+  FILTER_COUNTRIES_SUCCESS,
+  CLEAR_FILTER_DATA
 } from "./actions";
 
 const country = (
   state = {
     loading: false,
-    data: {}
+    data: [],
+    filteredData: []
   },
   action
 ) => {
@@ -18,7 +21,6 @@ const country = (
         loading: true
       };
     case LOAD_COUNTRIES_SUCCESS:
-      console.log(action.countries);
       return {
         loading: false,
         data: action.countries,
@@ -29,6 +31,18 @@ const country = (
         loading: false,
         data: {},
         error: action.error
+      };
+    case FILTER_COUNTRIES_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        filteredData: action.countries,
+        error: null
+      };
+    case CLEAR_FILTER_DATA:
+      return {
+        ...state,
+        filteredData: ""
       };
 
     default:
