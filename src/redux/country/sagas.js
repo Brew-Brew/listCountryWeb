@@ -19,8 +19,12 @@ export function* loadCountries(actions) {
   yield put(loadCountriesRequest());
 
   try {
-    const contries = yield call(getCountries);
-    yield put(loadCountriesSuccess(contries));
+    const countries = yield call(getCountries);
+    const countryArr = Object.keys(countries)
+      .map(key => [{ code: key, country: countries[key] }])
+      .map(arr => arr[0]);
+    console.log(countries);
+    yield put(loadCountriesSuccess(countryArr));
   } catch (error) {
     yield put(loadCountriesFailure(error));
   }
@@ -33,9 +37,9 @@ function* watchLoadCountries() {
 export function* sortCountries(actions) {
   yield put(setMeta(actions.sortInfo));
   const { meta, country } = yield select();
-  console.log("메타", meta);
-  const sortData = _.orderBy(country.data, ["code"], ["asc"]);
-  console.log("sorted", sortData);
+  // lodash를 사용하여 sorting함
+  const sortData = _.orderBy(country.data, [`${meta.type}`], [`${meta.sort}`]);
+  yield put(loadCountriesSuccess(sortData));
 }
 
 function* watchSortCountries() {

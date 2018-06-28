@@ -7,11 +7,7 @@ const moduleName = "ListCountries";
 
 const ListCountries = ({ countries }) => {
   //{ , , } => [{}.{},{}]형태로 바꿔주기 위한것이다.
-  const countryArr = Object.keys(countries)
-    .map(key => [{ key: key, country: countries[key] }])
-    .map(arr => arr[0]);
-
-  console.log(countryArr);
+  console.log(countries);
   return (
     <div classnames={cx(`${moduleName}`)}>
       list countries
@@ -19,12 +15,13 @@ const ListCountries = ({ countries }) => {
         <h4>code</h4>
         <h4>country</h4>
       </div>
-      {countryArr.map(country => (
-        <div className={cx(`${moduleName}-wrapper`)}>
-          <p>{country.key}</p>
-          <p>{country.country}</p>
-        </div>
-      ))}
+      {countries.length > 0 &&
+        countries.map(country => (
+          <div className={cx(`${moduleName}-wrapper`)}>
+            <p>{country.code}</p>
+            <p>{country.country}</p>
+          </div>
+        ))}
     </div>
   );
 };

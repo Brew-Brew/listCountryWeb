@@ -18,9 +18,10 @@ const country = (
         loading: true
       };
     case LOAD_COUNTRIES_SUCCESS:
+      console.log(action.countries);
       return {
         loading: false,
-        data: { ...action.countries },
+        data: action.countries,
         error: null
       };
     case LOAD_COUNTRIES_FAILURE:

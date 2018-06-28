@@ -13,10 +13,7 @@ class SearchBar extends Component {
     super(props);
     this.sortCountries = this.sortCountries.bind(this);
   }
-  componentDidMount() {
-    //처음 시작시, 나라정보를 받아온다.
-    //this.props.loadCountries();
-  }
+  componentDidMount() {}
   sortCountries(sortInfo) {
     this.props.sortCountries(sortInfo);
   }
@@ -31,17 +28,17 @@ class SearchBar extends Component {
           코드별 오름차순
         </button>
         <button
-          onClick={() => this.sortCountries({ type: "code", sort: "asc" })}
+          onClick={() => this.sortCountries({ type: "code", sort: "desc" })}
         >
           코드별 내림차순
         </button>
         <button
-          onClick={() => this.sortCountries({ type: "name", sort: "asc" })}
+          onClick={() => this.sortCountries({ type: "country", sort: "asc" })}
         >
           이름별 오름차순
         </button>
         <button
-          onClick={() => this.sortCountries({ type: "name", sort: "desc" })}
+          onClick={() => this.sortCountries({ type: "country", sort: "desc" })}
         >
           이름별 내림차순
         </button>

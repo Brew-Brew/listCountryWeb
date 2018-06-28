@@ -24,7 +24,7 @@ class App extends Component {
       <div className={cx(`${moduleName}`)}>
         ListCountries Web app
         <SearchBar />
-        {country.loading ? (
+        {country.loading && !country.data ? (
           <div>loading...</div>
         ) : (
           <ListCountries countries={country.data} />
