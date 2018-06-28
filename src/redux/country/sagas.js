@@ -15,7 +15,6 @@ import { setMeta } from "../meta/actions";
 
 //나라 load관련 함수들
 export function* loadCountries(actions) {
-  console.log("ddddd");
   yield put(loadCountriesRequest());
 
   try {
