@@ -24,11 +24,9 @@ url: https://zx6658.github.io/listCountryWeb/ 임시로 배포해놓았습니다
     과 같이 해주어, 대소문자 구분없이, 공백도 상관없이 검색가능하게 해주었음 (ex)northkorea 라 검색해도 나옴
   ```
 
-```
 ### 조건
 
 - 보일러 플레이트(create-react-app 등)를 사용하지 않아야 함.
 - react, redux, redux-saga 혹은 redux-observable, webpack 을 사용하여 개발
 - 모든 상태(나라 목록, 정렬 상태, 검색어 등)은 redux 에 저장되어야 함.
 - Network 통신은 redux-saga 혹은 redux-observable 을 통해 되어야 함.
-```

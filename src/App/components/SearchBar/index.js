@@ -42,7 +42,7 @@ class SearchBar extends Component {
         <div className={cx(`${moduleName}-area`)}>
           <div className={cx(`${moduleName}-searchWrapper`)}>
             <input
-              placeholder="Search code or country name"
+              placeholder="Search"
               onChange={this.handleChange}
               onKeyPress={this.handleKeyPress}
               value={keyword}

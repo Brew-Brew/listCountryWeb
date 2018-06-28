@@ -43,6 +43,11 @@
       padding: 0rem 1rem;
       img {
         margin-top: 0.5rem;
+        &:hover {
+          -moz-box-shadow: 0 0 10px #ccc;
+          -webkit-box-shadow: 0 0 10px #ccc;
+          box-shadow: 0 0 10px #ccc;
+        }
       }
     }
   }
