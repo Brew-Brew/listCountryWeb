@@ -29,7 +29,7 @@ class App extends Component {
   shouldComponentUpdate(nextProps) {
     const { country } = nextProps;
     if (country.loading !== this.props.country.loading && country.loading) {
-      //data가 빨리 받아와져서, 로딩을 보여주기 위해 delay를 걸었다.
+      //data가 빨리 받아와져서, 로딩을 보여주기 위해 delgay를 걸었다.
       setTimeout(() => this.setState({ loadingForDelay: false }), 1500);
     }
     return true;

@@ -15,9 +15,15 @@ export function* search(actions) {
 
   const filteredData = country.data.filter(data => {
     return (
-      //대소문자 구분없이 search
-      data.code.toLowerCase().indexOf(searchData.toLowerCase()) >= 0 ||
-      data.country.toLowerCase().indexOf(searchData.toLowerCase()) >= 0
+      //대소문자 , 공백 구분없이 search
+      data.code
+        .replace(/\s/gi, "")
+        .toLowerCase()
+        .indexOf(searchData.replace(/\s/gi, "").toLowerCase()) >= 0 ||
+      data.country
+        .replace(/\s/gi, "")
+        .toLowerCase()
+        .indexOf(searchData.trim().toLowerCase()) >= 0
     );
   });
   yield put(filterCountriesSuccess(filteredData));

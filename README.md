@@ -3,7 +3,6 @@
 ## How to start
 
 ```
-yarn
 yarn start
 ```
 
@@ -15,7 +14,11 @@ yarn start
 - http://country.io/names.json  을 GET 으로 가져와 나라의 코드와 이름을 리스팅해주는 페이지
 
 - 버튼을 누르면 코드별, 이름별 오름차순, 내림차순 정렬이 되어야 함.
+
 - 검색 창이 있어 코드, 이름 통합 검색이 되어야 함.
+  - data.code.replace(/\s/gi, "").toLowerCase().indexOf(searchData.replace(/\s/gi, "").toLowerCase()) >= 0
+    || data.country.replace(/\s/gi, "") .toLowerCase() .indexOf(searchData.trim().toLowerCase()) >= 0 );
+    과 같이 해주어, 대소문자 구분없이, 공백도 상관없이 검색가능하게 해주었음 (ex)northkorea 라 검색해도 나옴
 
 ### 조건
 

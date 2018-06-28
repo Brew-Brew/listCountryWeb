@@ -5,9 +5,10 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: "body"
 });
 module.exports = {
+  // spread operator와 generator를 쓰기 위해 babel로더에 아래 설정을 잡아주었습니다.
   entry: ["babel-polyfill", "./src/index.js"],
   output: {
-    path: path.resolve("dist"),
+    path: path.resolve("build"),
     filename: "[name].[hash].js"
   },
   module: {
@@ -40,6 +41,7 @@ module.exports = {
           }
         ]
       },
+      //scss를 쓰기위해 loader를 잡아주었습니다.
       {
         test: /\.scss$/,
         use: [
@@ -71,6 +73,7 @@ module.exports = {
       }
     ]
   },
+  //src를 루트경로로 쓰고, alias를 걸어주었습니다. (경로가 깔끔해짐)
   resolve: {
     alias: {
       src: path.resolve(__dirname, "./src")
