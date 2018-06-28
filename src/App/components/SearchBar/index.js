@@ -29,9 +29,8 @@ class SearchBar extends Component {
     const { keyword } = this.state;
     return (
       <div className={cx(`${moduleName}`)}>
-        SearchBar
+        List Countries
         <div className={cx(`${moduleName}-area`)}>
-          검색폼
           <input
             placeholder="검색"
             onChange={this.handleChange}

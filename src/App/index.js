@@ -22,7 +22,6 @@ class App extends Component {
     const { country, meta } = this.props;
     return (
       <div className={cx(`${moduleName}`)}>
-        ListCountries Web app
         <SearchBar />
         {country.loading && !country.data ? (
           <div>loading...</div>
