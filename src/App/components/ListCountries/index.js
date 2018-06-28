@@ -12,13 +12,18 @@ const ListCountries = ({ countries }) => {
         <h4>code</h4>
         <h4>country</h4>
       </div>
-      {countries.length > 0 &&
+      {countries.length > 0 ? (
         countries.map(country => (
           <div className={cx(`${moduleName}-wrapper`)}>
             <p>{country.code}</p>
             <p>{country.country}</p>
           </div>
-        ))}
+        ))
+      ) : (
+        <div className={cx(`${moduleName}-noData`)}>
+          데이터가 없습니다 :( <br />다시 검색해주세요
+        </div>
+      )}
     </div>
   );
 };

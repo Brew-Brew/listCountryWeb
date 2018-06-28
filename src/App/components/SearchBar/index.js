@@ -59,7 +59,7 @@ class SearchBar extends Component {
           이름별 내림차순
         </button>
         <button onClick={() => this.props.clearSearch()}>
-          전체 데이터 보기
+          초기 데이터 다시 받아오기
         </button>
       </div>
     );

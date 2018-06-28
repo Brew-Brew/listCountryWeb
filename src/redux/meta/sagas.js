@@ -1,6 +1,10 @@
 import { all, takeEvery, put, select } from "redux-saga/effects";
 import { SEARCH_DATA, setMeta, CLEAR_SEARCH } from "./actions";
-import { filterCountriesSuccess, clearFilterData } from "../country/actions";
+import {
+  filterCountriesSuccess,
+  clearFilterData,
+  loadCountries
+} from "../country/actions";
 // search
 export function* search(actions) {
   const searchData = actions.data;
@@ -11,8 +15,9 @@ export function* search(actions) {
 
   const filteredData = country.data.filter(data => {
     return (
-      data.code.indexOf(searchData) >= 0 ||
-      data.country.indexOf(searchData) >= 0
+      //대소문자 구분없이 search
+      data.code.toLowerCase().indexOf(searchData.toLowerCase()) >= 0 ||
+      data.country.toLowerCase().indexOf(searchData.toLowerCase()) >= 0
     );
   });
   yield put(filterCountriesSuccess(filteredData));
@@ -24,6 +29,7 @@ function* watchSearchData() {
 
 export function* clear() {
   yield put(clearFilterData());
+  yield put(loadCountries());
 }
 function* watchClearData() {
   yield takeEvery(CLEAR_SEARCH, clear);
