@@ -1,2 +1,9 @@
 .ListCountries {
+  &-wrapper {
+    background-color: white;
+    display: flex !important;
+    p {
+      flex: 1 1 auto;
+    }
+  }
 }

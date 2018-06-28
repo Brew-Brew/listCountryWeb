@@ -1,4 +1,7 @@
 .App {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+  &-country {
+    background-color: white;
+  }
 }

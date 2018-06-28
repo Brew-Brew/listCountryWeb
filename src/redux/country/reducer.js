@@ -20,7 +20,7 @@ const country = (
     case LOAD_COUNTRIES_SUCCESS:
       return {
         loading: false,
-        data: { ...action.countryInfo },
+        data: { ...action.countries },
         error: null
       };
     case LOAD_COUNTRIES_FAILURE:

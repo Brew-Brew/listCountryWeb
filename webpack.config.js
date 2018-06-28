@@ -17,10 +17,9 @@ module.exports = {
         loader: "babel-loader",
         exclude: /node_modules/,
         query: {
-          plugins: ["transform-object-rest-spread"]
+          plugins: ["transform-object-rest-spread", "transform-regenerator"]
         }
       },
-
       {
         test: /\.css$/,
         use: [
@@ -28,9 +27,15 @@ module.exports = {
           {
             loader: require.resolve("css-loader"),
             options: {
-              modules: true,
-              localIdentName: "[path][name]__[local]--[hash:base64:5]",
               importLoaders: 1
+            }
+          },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: {
+              // Necessary for external CSS imports to work
+              // https://github.com/facebookincubator/create-react-app/issues/2677
+              ident: "postcss"
             }
           }
         ]
@@ -42,15 +47,24 @@ module.exports = {
           {
             loader: require.resolve("css-loader"),
             options: {
-              importLoaders: 1,
               modules: true,
-              localIdentName: "[name]__[local]__[hash:base64:5]"
+              localIdentName: "[name]__[local]__[hash:base64:5]",
+              importLoaders: 1
+            }
+          },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: {
+              // Necessary for external CSS imports to work
+              // https://github.com/facebookincubator/create-react-app/issues/2677
+              ident: "postcss",
+              plugins: () => [require("postcss-flexbugs-fixes")]
             }
           },
           {
             loader: require.resolve("sass-loader"),
             options: {
-              includePaths: [path.resolve("src/scss")]
+              // 나중에 입력
             }
           }
         ]

@@ -9,5 +9,5 @@ export function getCountries() {
         return qs.stringify(params, { arrayFormat: "repeat" });
       }
     })
-    .get("/names/json");
+    .get("/names.json").then(res=>res.data);
 }

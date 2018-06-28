@@ -3,5 +3,5 @@ import metaRoot from "./meta/sagas";
 import watchLoadCountries from "./country/sagas";
 
 export default function* root() {
-  yield all([metaRoot(), fork(watchLoadCountries())]);
+  yield all([metaRoot(), watchLoadCountries()]);
 }

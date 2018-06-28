@@ -8,6 +8,8 @@
     "babel-loader": "^7.1.4",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "webpack-cli": "^3.0.8"
@@ -17,8 +19,10 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "autoprefixer": "^8.6.4",
     "axios": "^0.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
@@ -33,6 +37,7 @@
     "recompose": "^0.27.1",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
+    "regenerator-runtime": "^0.12.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "webpack": "^4.12.2",

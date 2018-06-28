@@ -7,17 +7,17 @@ import {
   LOAD_COUNTRIES,
   loadCountriesRequest,
   loadCountriesSuccess,
-  loadCountriesFailure,
-  loadCountriesRequest
+  loadCountriesFailure
 } from "./actions";
+import country from "./reducer";
 
 export function* loadCountries(actions) {
+  console.log("ddddd");
   yield put(loadCountriesRequest());
 
   try {
     const contries = yield call(getCountries);
-    console.log(contries);
-    yield put(loadCountriesSuccess());
+    yield put(loadCountriesSuccess(contries));
   } catch (error) {
     yield put(loadCountriesFailure(error));
   }
