@@ -15,17 +15,35 @@ const cx = classnames.bind(styles);
 const moduleName = "App";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loadingForDelay: true
+    };
+  }
+
   componentDidMount() {
     //처음 시작시, 나라정보를 받아온다.
     this.props.loadCountries();
   }
+  shouldComponentUpdate(nextProps) {
+    const { country } = nextProps;
+    if (country.loading !== this.props.country.loading && country.loading) {
+      //data가 빨리 받아와져서, 로딩을 보여주기 위해 delay를 걸었다.
+      setTimeout(() => this.setState({ loadingForDelay: false }), 1500);
+    }
+    return true;
+  }
   render() {
-    const { country, meta } = this.props;
+    const { loadingForDelay } = this.state;
+    const { country } = this.props;
     return (
       <div className={cx(`${moduleName}`)}>
         <SearchBar />
-        {country.loading ? (
-          <ThreeBounce size={15} color="#2e2744" />
+        {loadingForDelay ? (
+          <div className={cx(`${moduleName}-loading`)}>
+            로딩중입니다. <ThreeBounce size={15} color="#2e2744" />
+          </div>
         ) : (
           <ListCountries
             countries={
