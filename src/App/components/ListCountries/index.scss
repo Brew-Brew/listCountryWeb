@@ -1,9 +1,14 @@
 .ListCountries {
-  &-wrapper {
+  &-wrapper,
+  &-header {
     background-color: white;
     display: flex !important;
     p {
       flex: 1 1 auto;
+    }
+    h4 {
+      flex: 1 1 auto;
+      font-weight: 600;
     }
   }
 }

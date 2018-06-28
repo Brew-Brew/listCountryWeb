@@ -1,6 +1,6 @@
 import { SET_META, CLEAR_META } from "./actions";
 
-const initState = { meta: "meta" };
+const initState = { sort: "default" };
 
 const meta = (state = initState, action) => {
   switch (action.type) {
