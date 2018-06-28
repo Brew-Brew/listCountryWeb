@@ -52,11 +52,7 @@ class SearchBar extends Component {
               className={cx(`${moduleName}-searchWrapper-icon`)}
               onClick={() => this.props.searchData(keyword)}
             >
-              <img
-                src={
-                  "https://www.iconsdb.com/icons/preview/white/search-3-xxl.png"
-                }
-              />
+              <img src={"https://png.icons8.com/search/ffffff"} />
             </div>
           </div>
         </div>
