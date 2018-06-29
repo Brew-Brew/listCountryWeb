@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "yarn && webpack-dev-server --mode development --hot",
-    "build": "webpack --mode production",
+    "build": "yarn && webpack --mode production",
     "deploy": "npm run build && gh-pages -d build"
   },
   "dependencies": {
