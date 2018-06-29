@@ -5,6 +5,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: "body"
 });
 module.exports = {
+  devtool: "cheap-module-source-map",
   // spread operator와 generator를 쓰기 위해 babel로더에 아래 설정을 잡아주었습니다.
   entry: ["babel-polyfill", "./src/index.js"],
   output: {
